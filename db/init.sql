@@ -230,3 +230,7 @@ SELECT
   '["json","encoding/json","go/json"]'::jsonb,
   1, 'medium', 'Стандартная библиотека', 20
 WHERE NOT EXISTS (SELECT 1 FROM lessons WHERE id = 20);
+
+ALTER TABLE users ADD COLUMN IF NOT EXISTS role TEXT NOT NULL DEFAULT 'user';
+
+UPDATE users SET role = 'admin' WHERE email = 'ceo@gmail.com';

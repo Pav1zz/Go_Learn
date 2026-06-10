@@ -71,6 +71,12 @@ func main() {
 	// leaderboard
 	mux.HandleFunc("/leaderboard", authMiddleware(leaderboardHandler))
 
+	// Admin
+	mux.HandleFunc("/admin/lessons", adminMiddleware(adminCreateLessonHandler))
+	mux.HandleFunc("/admin/lessons/", adminMiddleware(adminLessonByIDHandler))
+	mux.HandleFunc("/admin/users", adminMiddleware(adminListUsersHandler))
+	mux.HandleFunc("/admin/users/", adminMiddleware(adminUserByIDHandler))
+
 	// swagger
 	mux.Handle("/swagger/", httpSwagger.WrapHandler)
 
