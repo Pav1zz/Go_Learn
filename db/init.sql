@@ -1,12 +1,17 @@
 CREATE TABLE IF NOT EXISTS users (
-  id         SERIAL PRIMARY KEY,
-  email      TEXT UNIQUE NOT NULL,
-  password   TEXT NOT NULL,
-  xp         INT DEFAULT 0,
-  streak     INT DEFAULT 0,
+  id            SERIAL PRIMARY KEY,
+  email         TEXT UNIQUE NOT NULL,
+  password      TEXT NOT NULL,
+  xp            INT DEFAULT 0,
+  streak        INT DEFAULT 0,
   last_activity DATE,
-  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-);
+  username      TEXT,
+  bio           TEXT,
+  country       TEXT,
+  avatar_color  TEXT DEFAULT '#00d4a0',
+  role          TEXT NOT NULL DEFAULT 'user',
+  created_at    TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);  
 
 CREATE TABLE IF NOT EXISTS lessons (
   id         SERIAL PRIMARY KEY,
